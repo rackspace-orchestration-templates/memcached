@@ -4,7 +4,36 @@ application-name: memcached
 application-version: 1.4
 flavor: Single Linux server with memcached
 flavor-weight: 1
-abstract: Single Linux server running [memcached](http://memcached.org/).
 reach-info:
   tattoo: https://0b5294b243620310a700-e388a7f3aba385a925111b1fc6f680d4.ssl.cf2.rackcdn.com/memcached-tattoo.png
   icon-20x20: https://0b5294b243620310a700-e388a7f3aba385a925111b1fc6f680d4.ssl.cf2.rackcdn.com/memcached-icon-20x20.png
+abstract: Single Linux server running [memcached](http://memcached.org/).
+instructions: |
+  #### Getting Started
+  Your server has [memcached](http://memcached.org/about) installed. If you are
+  planning to use this with a CMS or eCommerce platform, please read their
+  documentation on best practices for leveraging Memcache with their product.
+  Programming languages like Ruby, PHP, and Python will typically require the
+  installation of a module to add memcached support.
+
+  #### Details of Your Setup
+  This deployment was stood up using
+  [chef-solo](http://docs.opscode.com/chef_solo.html).  Once the deployment is
+  up, chef will not run again, so it is safe to modify configurations.
+
+  [Memcached](http://memcached.org/) was installed via package, and the
+  configuration file is /etc/memcached.conf for Ubuntu and
+  /etc/sysconfig/memcached for CentOS. Any changes made to the configuration
+  will require a restart to the Mecached service.
+
+  #### Logging in via SSH
+  The private key provided in the passwords section can be used to login as
+  root via SSH. We have an article on how to use these keys with [Mac OS X and
+  Linux](http://www.rackspace.com/knowledge_center/article/logging-in-with-a-ssh-private-key-on-linuxmac)
+  as well as [Windows using
+  PuTTY](http://www.rackspace.com/knowledge_center/article/logging-in-with-a-ssh-private-key-on-windows).
+
+  #### Additional Notes
+  Currently, there is not a way to automatically add nodes to this deployment.
+  If you need an additional memcached server, you can deploy another server
+  using this tool.
