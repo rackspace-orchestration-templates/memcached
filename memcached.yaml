@@ -80,7 +80,6 @@ resources:
         site :opscode
 
         cookbook 'apt'
-        cookbook 'build-essential'
         cookbook 'memcached'
         cookbook 'rax-memcached',
           :git => 'https://github.com/JasonBoyles/rax-memcached.git'
@@ -92,7 +91,6 @@ resources:
         memcached:
           port: { get_param: memcached_port }
         run_list: ["recipe[apt]",
-                   "recipe[build-essential]",
                    "recipe[rax-memcached::firewall]",
                    "recipe[rax-memcached::default]"]
 
