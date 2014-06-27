@@ -1,6 +1,7 @@
 from fabric.api import env, task
 from envassert import detect, file, package, port, process, service
 
+
 @task
 def check():
     env.platform_family = detect.detect()
