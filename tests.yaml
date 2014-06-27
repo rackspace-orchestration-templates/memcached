@@ -7,7 +7,7 @@ test-cases:
     ssh_key_file: tmp/private_key # File to write with ssh_private_key
     tests:
     - memcached_server:
-        envassert:
+        fabric:
           # Fabric environment settings to use while running envassert script
           # http://docs.fabfile.org/en/latest/usage/env.html
           env:
@@ -20,7 +20,7 @@ test-cases:
             connection_attempts: 3
             disable_known_hosts: True
             use_ssh_config: True
-            fabfile: test/envassert/memcached_server.py # Path to envassert test
+            fabfile: test/fabric/memcached_server.py # Path to envassert test
 
 - name: Standard Instance, non-standard Port
   create:
@@ -33,7 +33,7 @@ test-cases:
     ssh_key_file: tmp/private_key
     tests:
     - memcached_port:
-        envassert:
+        fabric:
           env:
             user: root
             key_filename: tmp/private_key
@@ -44,4 +44,4 @@ test-cases:
             connection_attempts: 3
             disable_known_hosts: True
             use_ssh_config: True
-            fabfile: test/envassert/memcached_port_11212.py
+            fabfile: test/fabric/memcached_port_11212.py
