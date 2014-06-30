@@ -7,6 +7,7 @@ description: |
 parameters:
 
   image:
+    label: Server Image
     description: Server Image
     type: string
     default: Ubuntu 12.04 LTS (Precise Pangolin)
@@ -16,6 +17,7 @@ parameters:
       description: Must be a supported operating system.
 
   flavor:
+    label: Server Size
     description: Rackspace Cloud Server flavor
     type: string
     default: 1 GB Performance
@@ -39,16 +41,19 @@ parameters:
         selected to deploy into.
 
   server_hostname:
+    label: Hostname
     description: Hostname for the server.
     type: string
     default: memcache
 
   memory_percentage:
+    label: Allowed Memory Size
     description: Percentage of memory memcached is allowed to use
     type: number
     default: 60
 
   memcached_port:
+    label: Memcached Port
     description: Port memcached will listen on
     type: number
     default: 11211
