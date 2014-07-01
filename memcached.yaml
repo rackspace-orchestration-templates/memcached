@@ -4,6 +4,19 @@ heat_template_version: 2013-05-23
 description: |
   This is a Heat template to deploy a single Linux server running memcached.
 
+parameter_groups:
+
+- label: Server Settings
+  parameters:
+  - server_hostname
+  - image
+  - flavor
+
+- label: Memcached Settings
+  parameters:
+  - memcached_port
+  - memory_percentage
+
 parameters:
 
   image:
