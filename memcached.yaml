@@ -25,8 +25,10 @@ parameter_groups:
 parameters:
 
   image:
-    label: Server Image
-    description: Server Image
+    label: Operating System
+    description: |
+      Server image used for all servers that are created as a part of this
+      deployment.
     type: string
     default: Ubuntu 12.04 LTS (Precise Pangolin)
     constraints:
@@ -36,7 +38,9 @@ parameters:
 
   flavor:
     label: Server Size
-    description: Rackspace Cloud Server flavor
+    description: |
+      Rackspace Cloud Server flavor to use. The size is based on the amount of
+      RAM for the provisioned server.
     type: string
     default: 1 GB Performance
     constraints:
@@ -126,10 +130,13 @@ resources:
 
 outputs:
   private_key:
+    description: SSH Private Key
     value: { get_attr: [ssh_key, private_key] }
 
   server_ip:
+    description: Server IP
     value: { get_attr: [memcached_server, accessIPv4] }
 
   memcached_port:
+    description: Memcached Port
     value: { get_param: memcached_port }
