@@ -8,7 +8,6 @@ parameter_groups:
 
 - label: Server Settings
   parameters:
-  - server_hostname
   - image
   - flavor
 
@@ -16,6 +15,12 @@ parameter_groups:
   parameters:
   - memcached_port
   - memory_percentage
+
+- label: rax-dev-params
+  parameters:
+  - server_hostname
+  - kitchen
+  - chef_version
 
 parameters:
 
@@ -71,6 +76,18 @@ parameters:
     type: number
     default: 11211
 
+  kitchen:
+    label: Kitchen
+    description: URL for the kitchen to use
+    type: string
+    default: https://github.com/rackspace-orchestration-templates/memcached
+
+  chef_version:
+    label: Chef Version
+    description: Version of chef client to use
+    type: string
+    default: 11.12.8
+
 resources:
 
   ssh_key:
@@ -86,6 +103,8 @@ resources:
       flavor: { get_param: flavor }
       image: { get_param: image }
       key_name: { get_resource: ssh_key }
+      metadata:
+        rax-heat: { get_param: "OS::stack_id" }
 
   memcached_setup:
     type: "OS::Heat::ChefSolo"
@@ -94,15 +113,8 @@ resources:
       username: root
       private_key: { get_attr: [ssh_key, private_key] }
       host: { get_attr: [memcached_server, accessIPv4] }
-      Berksfile: |
-        site :opscode
-
-        cookbook 'apt'
-        cookbook 'memcached'
-        cookbook 'rax-memcached',
-          :git => 'https://github.com/JasonBoyles/rax-memcached.git'
-        cookbook 'rax-firewall',
-          :git => 'https://github.com/brint/rax-firewall-cookbook.git'
+      kitchen: { get_param: kitchen }
+      chef_version: { get_param: chef_version }
       node:
         rax_memcached:
           mem_percent: { get_param: memory_percentage }
