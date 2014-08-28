@@ -6,5 +6,4 @@ before_install:
   - sudo apt-get install -y git python-dev libxml2-dev libxslt1-dev zlib1g-dev
 install:
   - pip install hot
-script: hot test
-
+script: '[ ! -z "${OS_PASSWORD}" ] && hot test || false'
