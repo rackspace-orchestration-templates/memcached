@@ -52,12 +52,13 @@ Parameters can be replaced with your own values when standing up a stack. Use
 the `-P` flag to specify a custom parameter.
 
 * `server_hostname`: Sets the hostname of the server. (Default: memcache)
-* `image`: Operating system to install (Default: Ubuntu 12.04 LTS (Precise
-  Pangolin))
+* `image`: Operating system to install (Default: Ubuntu 14.04 LTS (Trusty Tahr)
+  (PVHVM))
 * `flavor`: Cloud server size to use. (Default: 1 GB Performance)
 * `ssh_keypair_name`: Name of the SSH key pair to register with nova (Default:
   none)
-* `memory_percentage`: Percentage of server memory to allow memcached to use (Default: 60)
+* `memory_percentage`: Percentage of server memory to allow memcached to use
+  (Default: 60)
 * `memcached_port`: TCP port that memcached will listen on (Default: 11211)
 
 Outputs
