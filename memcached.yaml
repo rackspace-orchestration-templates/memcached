@@ -125,6 +125,7 @@ resources:
         memcached:
           port: { get_param: memcached_port }
         run_list: ["recipe[apt]",
+                   "recipe[firewall]",
                    "recipe[rax-memcached::firewall]",
                    "recipe[rax-memcached::default]"]
 
