@@ -39,3 +39,6 @@ instructions: |
   Currently, there is not a way to automatically add nodes to this deployment.
   If you need an additional memcached server, you can deploy another server
   using this tool.
+description: |
+  Single Linux server running the latest stable version of
+  [memcached](http://memcached.org/).
