@@ -2,7 +2,8 @@
 heat_template_version: 2013-05-23
 
 description: |
-  This is a Heat template to deploy a single Linux server running memcached.
+  Single Linux server running the latest stable version of
+  [memcached](http://memcached.org/).
 
 parameter_groups:
 
