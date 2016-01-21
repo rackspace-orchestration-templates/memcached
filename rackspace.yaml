@@ -1,6 +1,6 @@
 schema-version: 1.0.0
 application-family: Miscellaneous
-application-name: memcached
+application-name: Memcached
 application-version: 1.4
 flavor: Single Linux server
 flavor-weight: 1
